@@ -1,0 +1,16 @@
+{
+  "name": "cli-aplikacja",
+  "version": "1.0.0",
+  "description": "My first node application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
+  },
+  "author": "Magdalena Kuśmierczak",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
