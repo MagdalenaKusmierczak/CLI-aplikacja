@@ -1,3 +1,4 @@
+const { nanoid } = require("nanoid");
 const fs = require("fs").promises;
 const { Console } = require("console");
 const path = require("path");
@@ -47,7 +48,21 @@ async function removeContact(contactId) {
 }
 
 async function addContact(name, email, phone) {
-  // ...twój kod
+  try {
+    const contacts = await listContacts();
+    const newContact = {
+      id: nanoid(),
+      name,
+      email,
+      phone,
+    };
+    contacts.push(newContact);
+    await fs.writeFile(contactsPath, JSON.stringify(contacts));
+    console.log(`You added ${name} to contacts`);
+    return newContact;
+  } catch (error) {
+    console.log("Error, contact can't be add", error.message);
+  }
 }
 module.exports = {
   listContacts,
