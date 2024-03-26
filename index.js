@@ -19,14 +19,14 @@ program.parse(process.argv);
 
 const argv = program.opts();
 
-function invokeAction({ action, contactId, name, email, phone }) {
+function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
       listContacts();
       break;
 
     case "get":
-      getContactById(contactId);
+      getContactById(id);
       break;
 
     case "add":
