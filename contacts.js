@@ -1,9 +1,12 @@
-const { nanoid } = require("nanoid");
 const fs = require("fs").promises;
-const { Console } = require("console");
 const path = require("path");
 
-const contactsPath = path.join("./db", "contacts.json");
+const contactsPath = path.resolve("db/contacts.json");
+
+const getNanoid = async () => {
+  const module = await import("nanoid");
+  return module.nanoid;
+};
 
 async function listContacts() {
   try {
@@ -19,8 +22,8 @@ async function listContacts() {
 
 async function getContactById(contactId) {
   try {
-    const contacts = await listContacts;
-    const contact = contacts.find((element) => element.id === contactId);
+    const contacts = await listContacts();
+    const contact = contacts.find((contact) => contact.id === contactId);
     if (contact) {
       console.log(`Contact with id= ${contactId} is ${contact}`);
     } else {
@@ -50,8 +53,9 @@ async function removeContact(contactId) {
 async function addContact(name, email, phone) {
   try {
     const contacts = await listContacts();
+    const newId = await getNanoid();
     const newContact = {
-      id: nanoid(),
+      id: newId,
       name,
       email,
       phone,
