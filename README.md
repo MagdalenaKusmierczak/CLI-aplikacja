@@ -7,5 +7,5 @@ https://monosnap.com/file/uvWI7Dsij11HkaXpBBxGPh0Xk2daBZ
 Action add (contact with name, email and phone input):
 https://monosnap.com/file/tLALAwnegMGj82UnlWosfgGz67xNhs
 
-Acion remove (using contact id):
+Action remove (using contact id):
 https://monosnap.com/file/vqueYsrRb3qXm9oMDwzb0KPw2xq3MP
